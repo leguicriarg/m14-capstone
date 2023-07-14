@@ -10,6 +10,9 @@
 
 En este capstone pondremos a prueba todo lo aprendido con respecto a la creación de aplicaciones visuales (_Dash_) y cómo crear un proceso "automatizado" para su puesta en producción y despliegue de nuevos cambios (_CI/CD con CodeDeploy_).
 
+## Aclaracion
+Se adjunta una carpeta con imagenes con los errores que la plataforma estuvo emitiendo.
+
 ## Descripción
 
 En este capstone partimos del problema planteado en el módulo IX donde desarrollamos una aplicación visual con _Dash_ en la que visualizabamos datos de accesos a nuestra aplicación web a través de varias redes sociales (_facebook_, _twitter_ e _instagram_).
