@@ -48,12 +48,11 @@ app.layout = html.Div([
     ], style={"columnCount": 3, 'textAlign': "center", "margin-top": "24px", "margin-bottom": "48px"}),
     html.Div([
         html.Div([
-            html.Img(src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
-                     style={"width": "50px"}),
-            html.H2(
-                id='total-visit',
-            )
-        ]),
+        html.Img(src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
+                style={"width": "50px"}),
+        html.H2(id='total-visit'),
+        html.H2("avg-duration")
+    ]),
         html.Div([
             html.Img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/240px-Facebook_logo_%28square%29.png",
                      style={"width": "50px"}),
@@ -84,10 +83,6 @@ app.layout = html.Div([
     dcc.Graph(
         id='total-visit-social-networks-line'
     ),
-    html.H3('Average time by Social Networks', style={"textAlign": "center"}),
-    dcc.Graph(
-        id='avg-duration-line'
-    ),
 
     html.Div([
         html.H3('Total Visits by Country', style={"textAlign": "center"}),
@@ -104,11 +99,11 @@ app.layout = html.Div([
 
 @app.callback(
     Output('total-visit', 'children'),
+    Output('avg-duration', 'children'),
     Output('facebook-visit', 'children'),
     Output('instagram-visit', 'children'),
     Output('twitter-visit', 'children'), 
     Output('total-visit-line', 'figure'),
-    Output('avg-duration-line', 'figure'),
     Output('total-visit-social-networks-line', 'figure'),
     Output('world-map', 'figure'),
     Output('diveces-pie', 'figure'),
