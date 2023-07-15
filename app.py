@@ -14,7 +14,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 # DATA
-df = pd.read_parquet('/tmp/social_network.parquet')
+df = pd.read_csv('/home/cronopio/Escritorio/social_network.csv')
 
 # LAYOUT
 
@@ -84,6 +84,11 @@ app.layout = html.Div([
     dcc.Graph(
         id='total-visit-social-networks-line'
     ),
+    html.H3('Average time by Social Networks', style={"textAlign": "center"}),
+    dcc.Graph(
+        id='avg-duration-line'
+    ),
+
     html.Div([
         html.H3('Total Visits by Country', style={"textAlign": "center"}),
         dcc.Graph(
@@ -101,8 +106,9 @@ app.layout = html.Div([
     Output('total-visit', 'children'),
     Output('facebook-visit', 'children'),
     Output('instagram-visit', 'children'),
-    Output('twitter-visit', 'children'),
+    Output('twitter-visit', 'children'), 
     Output('total-visit-line', 'figure'),
+    Output('avg-duration-line', 'figure'),
     Output('total-visit-social-networks-line', 'figure'),
     Output('world-map', 'figure'),
     Output('diveces-pie', 'figure'),
@@ -110,6 +116,7 @@ app.layout = html.Div([
     Input('date-picker-range', 'end_date'),
     Input('social-networks-dropdown', 'value'),
     Input('devices-checkbox', 'value'))
+
 def update_figures(start_date_selected, end_date_selected, social_networks_selected, devices_selected):
 
     total_visit = (
@@ -188,7 +195,7 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
         .name
         .reset_index()
     )
-
+    
     df_devices = (
         df
         .loc[(df.social_network.isin(social_networks_selected)) &
@@ -206,7 +213,9 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
         x="year_month",
         y="name",
         labels={
-            "name": "Total Visits",  "year_month": "Month"
+            "name": "Total Visits", 
+            "year_month": "Month",
+            "average_duration_social_network": "Average Duration on Social Network"
         }
     )
 
@@ -240,7 +249,17 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
         }
     )
 
-    return total_visit, facebook_visit, instagram_visit, twitter_visit, total_visit_fig, total_visit_social_network_fig, world_map_fig, devices_pie_fig
+    avg_duration = (
+        df
+        .loc[(df.social_network.isin(social_networks_selected)) &
+            (df.device.isin(devices_selected)) &
+            (df.datetime >= start_date_selected) &
+            (df.datetime <= end_date_selected)]
+        .groupby('social_network')['duration']
+        .mean()
+    )
+
+    return total_visit, facebook_visit, instagram_visit, twitter_visit, total_visit_fig, total_visit_social_network_fig, world_map_fig, devices_pie_fig, avg_duration
 
 
 if __name__ == '__main__':
