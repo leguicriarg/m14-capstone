@@ -11,7 +11,7 @@
 En este capstone pondremos a prueba todo lo aprendido con respecto a la creación de aplicaciones visuales (_Dash_) y cómo crear un proceso "automatizado" para su puesta en producción y despliegue de nuevos cambios (_CI/CD con CodeDeploy_).
 
 ## Aclaracion
-Se adjunta una carpeta con imagenes con los errores que la plataforma estuvo emitiendo.
+La versión presentada el día 14/07 tuvo modificaciones el día 15/07. El día de la presentacion no logré el despliegue de la aplicación.
 
 ## Descripción
 
@@ -65,3 +65,5 @@ Se deberá realizar el capstone en el classroom del módulo 14. Asimismo se debe
 9. Vuelve a realizar otro despliegue con CodeDeploy utilizando el último commit.
 10. Verificar que la aplicación se actualiza.
 11. **Opcional**: ¿Se te ocurre algún KPI que mostrar sobre la nueva red social twitch? Modifica la aplicación de Dash y despliega el cambio de forma similar a como se hizo en el paso 8 y 9. **Comenta y justifica a continuación** el cambio realizado.
+
+Viendo que entre los datos existe la columna "minutes", sería útil agregar una métrica adicional relacionada con la cantidad de minutos en promedio que cada usuario pasa en la red social.
