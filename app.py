@@ -17,8 +17,10 @@ server = app.server
 df = pd.read_parquet('/tmp/social_network.parquet')
 
 # LAYOUT
+
+
 app.layout = html.Div([
-    html.H1('Dashboard Social Networks', style={
+    html.H1('Cristian Leguisamon - Dashboard Social Networks', style={
             "text-align": "center", "margin-top": "24px", "margin-bottom": "48px"}),
     html.Div([
         html.Label('Datetime Range'),
