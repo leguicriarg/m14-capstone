@@ -14,7 +14,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 # DATA
-df = pd.read_csv('/home/cronopio/Escritorio/social_network.csv')
+df = pd.read_parquet('/tmp/social_network.parquet')
 
 # LAYOUT
 
