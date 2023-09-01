@@ -31,7 +31,7 @@ Se deberá realizar el capstone en el classroom del módulo 14. Asimismo se debe
 
 ## Pasos a seguir
 
-1. Crear un repositorio **público** en GitHub. **https://github.com/leguicriarg/m14-capstone**
+1. Crear un repositorio **público** en GitHub. **https://github.com/leguicriarg/m14-capstone** (http://ec2-54-224-41-241.compute-1.amazonaws.com/)
    - El repositorio deberá inicializarse con el código proporcionado dentro de la carpeta `codedeploy-dash` (los siguientes comandos de git pueden ser necesarios `git init`, `git add`, `git commit`, `git push`)
 2. Crear una instancia de EC2
    - Amazon Linux 2023 AMI 64-bit (x86)
